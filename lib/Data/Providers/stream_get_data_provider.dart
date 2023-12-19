@@ -12,9 +12,9 @@ class StremGetDataProvider extends ChangeNotifier {
   List<GetDataModel> getDataList = [];
   bool isLoading = false;
   Future<void> getStremData() async {
-    isLoading = true;
-    notifyListeners();
     try {
+      isLoading = true;
+      notifyListeners();
       getDataList = await apiService.getData();
       isLoading = false;
       notifyListeners();

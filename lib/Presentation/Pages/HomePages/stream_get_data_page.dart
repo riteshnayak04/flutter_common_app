@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_common_widgets/Data/Providers/stream_get_data_provider.dart';
+import 'package:flutter_common_widgets/Presentation/Pages/HomePages/stream_get_data_details_page.dart';
 import 'package:provider/provider.dart';
 
 class StreamGetDataPage extends StatefulWidget {
@@ -25,43 +26,46 @@ class _StreamGetDataPageState extends State<StreamGetDataPage> {
       ),
       body: Consumer<StremGetDataProvider>(
         builder: (context, getDataProvider, child) {
-          if (getDataProvider.isLoading) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          } else {
-            if (getDataProvider.getDataList.isEmpty) {
-              return const Center(
-                child: Text('No Data'),
-              );
-            } else {
-              // stream builder
-              return StreamBuilder(
-                  stream: getDataProvider.streamController.stream,
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      return ListView.builder(
-                        itemCount: getDataProvider.getDataList.length,
-                        itemBuilder: (context, index) {
-                          final data = getDataProvider.getDataList[index];
-                          return ListTile(
-                            onTap: () {},
-                            leading: CircleAvatar(
-                              backgroundImage: NetworkImage(data.avatar),
+          return StreamBuilder(
+            stream: getDataProvider.streamController.stream,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                if (snapshot.data == null) {
+                  return const Center(
+                    child: Text('No Data'),
+                  );
+                } else {
+                  return ListView.builder(
+                    itemCount: getDataProvider.getDataList.length,
+                    itemBuilder: (context, index) {
+                      final data = getDataProvider.getDataList[index];
+                      return ListTile(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => StreamGetDataDetailsPage(
+                                getDataModel: data,
+                              ),
                             ),
-                            title: Text('${data.firstName} ${data.lastName}'),
-                            subtitle: Text(data.email),
                           );
                         },
+                        leading: CircleAvatar(
+                          backgroundImage: NetworkImage(data.avatar),
+                        ),
+                        title: Text('${data.firstName} ${data.lastName}'),
+                        subtitle: Text(data.email),
                       );
-                    } else {
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    }
-                  });
-            }
-          }
+                    },
+                  );
+                }
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          );
         },
       ),
     );
