@@ -35,6 +35,7 @@ class _StreamGetDataPageState extends State<StreamGetDataPage> {
                 child: Text('No Data'),
               );
             } else {
+              // stream builder
               return StreamBuilder(
                   stream: getDataProvider.streamController.stream,
                   builder: (context, snapshot) {
