@@ -15,6 +15,7 @@ import 'package:flutter_common_widgets/Presentation/Pages/HomePages/get_multiple
 import 'package:flutter_common_widgets/Presentation/Pages/HomePages/get_single_data_page.dart';
 import 'package:flutter_common_widgets/Presentation/Pages/HomePages/stream_get_data_page.dart';
 import 'package:flutter_common_widgets/Presentation/Pages/HomePages/upload_image_page.dart';
+import 'package:flutter_common_widgets/Presentation/Pages/about_null_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -67,7 +68,8 @@ class MyApp extends StatelessWidget {
         // home: const FetchDataPage(),
         // home: const StreamGetDataPage(),
         // home: const GetSingleDataPage(),
-        home: const GetMultipleDataPage(),
+        // home: const GetMultipleDataPage(),
+        home: const AboutNullPage(),
       ),
     );
   }
