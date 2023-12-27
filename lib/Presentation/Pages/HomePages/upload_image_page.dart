@@ -100,7 +100,7 @@ class _UploadImagePageState extends State<UploadImagePage> {
                             },
                           );
                         },
-                        child: value.isLoading
+                        child: value.isLoading == true
                             ? const SizedBox(
                                 height: 30,
                                 width: 30,
