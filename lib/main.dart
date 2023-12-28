@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_common_widgets/Data/Providers/fetch_data_provider.dart';
 import 'package:flutter_common_widgets/Data/Providers/get_data_provider.dart';
 import 'package:flutter_common_widgets/Data/Providers/get_multiple_data_provider.dart';
+import 'package:flutter_common_widgets/Data/Providers/get_poll_api_provider.dart';
 import 'package:flutter_common_widgets/Data/Providers/get_single_data_provider.dart';
 import 'package:flutter_common_widgets/Data/Providers/log_in_provider.dart';
 import 'package:flutter_common_widgets/Data/Providers/stream_get_data_provider.dart';
@@ -12,7 +13,9 @@ import 'package:flutter_common_widgets/Logic/Providers/otp_provier.dart';
 import 'package:flutter_common_widgets/Logic/Providers/phone_provier.dart';
 import 'package:flutter_common_widgets/Data/Providers/upload_image_provider.dart';
 import 'package:flutter_common_widgets/Presentation/Pages/HomePages/get_multiple_data_page.dart';
+import 'package:flutter_common_widgets/Presentation/Pages/HomePages/get_polls_api_page.dart';
 import 'package:flutter_common_widgets/Presentation/Pages/HomePages/get_single_data_page.dart';
+import 'package:flutter_common_widgets/Presentation/Pages/HomePages/ott_polls_page.dart';
 import 'package:flutter_common_widgets/Presentation/Pages/HomePages/stream_get_data_page.dart';
 import 'package:flutter_common_widgets/Presentation/Pages/HomePages/upload_image_page.dart';
 import 'package:flutter_common_widgets/Presentation/Pages/about_null_page.dart';
@@ -56,6 +59,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => StremGetDataProvider()),
         ChangeNotifierProvider(create: (context) => GetSingleDataProvider()),
         ChangeNotifierProvider(create: (context) => GetMultipleDataProvider()),
+        ChangeNotifierProvider(create: (context) => GetPollApiProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -69,7 +73,9 @@ class MyApp extends StatelessWidget {
         // home: const StreamGetDataPage(),
         // home: const GetSingleDataPage(),
         // home: const GetMultipleDataPage(),
-        home: const AboutNullPage(),
+        // home: const AboutNullPage(),
+        // home: const OttPollsPage(),
+        home: const GetPollsApiPage(),
       ),
     );
   }
