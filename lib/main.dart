@@ -7,6 +7,7 @@ import 'package:flutter_common_widgets/Data/Providers/get_poll_api_provider.dart
 import 'package:flutter_common_widgets/Data/Providers/get_single_data_provider.dart';
 import 'package:flutter_common_widgets/Data/Providers/log_in_provider.dart';
 import 'package:flutter_common_widgets/Data/Providers/stream_get_data_provider.dart';
+import 'package:flutter_common_widgets/Data/Services/search_api_service.dart';
 import 'package:flutter_common_widgets/Logic/Providers/bottom_nav_bar_provider.dart';
 import 'package:flutter_common_widgets/Logic/Providers/drop_down_provider.dart';
 import 'package:flutter_common_widgets/Logic/Providers/otp_provier.dart';
@@ -60,6 +61,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => GetSingleDataProvider()),
         ChangeNotifierProvider(create: (context) => GetMultipleDataProvider()),
         ChangeNotifierProvider(create: (context) => GetPollApiProvider()),
+        ChangeNotifierProvider(create: (context) => SearchProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
